@@ -22,7 +22,7 @@ describe('Pet', () => {
     assert.equal(response.status, 200, 'Status code should be 201');
   });
 
-  it.only('Create new Pet', async () => {
+  it('Create new Pet', async () => {
     // Arrange
     const body = createPetBody({ id: petId });
 
