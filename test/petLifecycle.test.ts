@@ -2,6 +2,7 @@ import { PetApi } from '../api/petStore.api';
 import { assert } from 'chai';
 import { createPetBody } from '../data/httpBody';
 import { FakerData } from '../data';
+import { joiAssert, petResponseSchema } from '../utils/joi.utils';
 
 describe('Pet', () => {
   let petApi: PetApi;
@@ -31,5 +32,6 @@ describe('Pet', () => {
 
     // Assert
     assert.equal(response.status, 200, 'Status code should be 200');
+    joiAssert(response.body, petResponseSchema(body), `Wrong schema for ${response.request.url}`);
   });
 });
