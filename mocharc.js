@@ -1,0 +1,16 @@
+module.exports = {
+  exit: true,
+  diff: true,
+  package: './package.json',
+  reporter: ['spec'],
+  slow: 10000,
+  timeout: 400000,
+  extension: ['ts'],
+  spec: ['./test/**.test.ts'],
+  'watch-files': ['./test/*.ts'],
+  require: ['ts-node/register/transpile-only', 'tsconfig-paths/register'],
+  loader: 'ts-node/esm',
+  jobs: 1,
+  parallel: true,
+  retries: 0,
+};
