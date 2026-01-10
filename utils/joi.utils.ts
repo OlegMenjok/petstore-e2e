@@ -18,7 +18,9 @@ export function petResponseSchema(data: IPet) {
       name: Joi.string().valid(data.category.name).required(),
     }),
     name: Joi.string().valid(data.name).required(),
-    photoUrls: Joi.array().items(Joi.string()).required(),
+    photoUrls: Joi.array()
+      .items(Joi.string().valid(...data.photoUrls))
+      .required(),
     tags: Joi.array().items(
       Joi.object({
         id: Joi.number().valid(data.tags[0].id).required(),
