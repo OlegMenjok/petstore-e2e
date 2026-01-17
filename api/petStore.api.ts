@@ -3,10 +3,6 @@ import { log } from 'utils';
 import { IPet } from '../interfaces/IPet';
 
 export class PetApi extends ServiceApi {
-  // constructor() {
-  //   super('https://petstore.swagger.io');
-  // }
-
   getPet(petId: number) {
     const request = this.agent('GET', `/v2/pet/${petId}`);
     return request.then(

@@ -1,5 +1,6 @@
 import { IPet } from '../../interfaces/IPet';
 import { FakerData } from '../faker.data';
+import { log } from 'utils';
 
 export function createPetBody(data: Partial<IPet> = {}): IPet {
   const {
@@ -15,7 +16,8 @@ export function createPetBody(data: Partial<IPet> = {}): IPet {
     ],
     status = 'available',
   } = data;
-  return {
+
+  const body = {
     id,
     category,
     name,
@@ -23,4 +25,6 @@ export function createPetBody(data: Partial<IPet> = {}): IPet {
     tags,
     status,
   };
+  log.info(`Create body for pet: ${JSON.stringify(body)}`);
+  return body;
 }
