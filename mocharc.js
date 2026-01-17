@@ -9,7 +9,6 @@ module.exports = {
   spec: ['./test/**.test.ts'],
   'watch-files': ['./test/*.ts'],
   require: ['ts-node/register/transpile-only', 'tsconfig-paths/register'],
-  loader: 'ts-node/esm',
   jobs: 1,
   parallel: true,
   retries: 0,
