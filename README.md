@@ -7,6 +7,7 @@ Automated E2E tests for [Swagger PetStore API](https://petstore.swagger.io/)
 ## 📋 About
 
 This project contains automated tests for PetStore API functionality, including:
+
 - ✅ Creating new pets
 - ✅ Getting pet information
 - ✅ Updating data
@@ -53,6 +54,7 @@ npm run test-serial
 ## 📊 Reports
 
 After each run, an xUnit format XML report is generated:
+
 ```
 .temp/xunit-report.xml
 ```
@@ -82,6 +84,7 @@ The project supports automatic test results delivery to Telegram.
    - Find `"chat":{"id":123456789}` - this is your Chat ID
 
 3. **Create `.env` file:**
+
    ```bash
    cp .env.example .env
    ```
