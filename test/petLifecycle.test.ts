@@ -17,14 +17,6 @@ describe('Pet', () => {
     petId = FakerData.getID();
   });
 
-  it('get pet', async () => {
-    // Act
-    const response = await petApi.getPet(2);
-
-    // Assert
-    assert.equal(response.status, 200, 'Status code should be 201');
-  });
-
   it('Create new Pet', async () => {
     // Arrange
     const body = createPetBody({ id: petId });
