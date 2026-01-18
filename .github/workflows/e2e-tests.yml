@@ -35,6 +35,9 @@ jobs:
         run: npm run eslint
 
       - name: Run E2E tests
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: npm run test-integration
 
       - name: Upload test results
