@@ -2,7 +2,7 @@ import { PetApi } from '../api/petStore.api';
 import { assert } from 'chai';
 import { createPetBody } from '../data/httpBody';
 import { FakerData } from '../data';
-import { joiAssert, petResponseSchema, ServiceUtils } from '../utils';
+import { joiAssert, petResponseDeleteSchema, petResponseSchema, ServiceUtils } from '../utils';
 
 describe('Pet', () => {
   let petApi: PetApi;
@@ -40,5 +40,18 @@ describe('Pet', () => {
     // Assert
     assert.equal(response.status, 200, 'Status code should be 200');
     joiAssert(response.body, petResponseSchema(body), `Wrong schema for ${response.request.url}`);
+  });
+
+  it('Delete created pet', async () => {
+    // Arrange
+    const body = createPetBody({ id: petId });
+    await serviceUtils.createAndCheckPet(body);
+
+    // Act
+    const response = await petApi.deletePet(petId);
+
+    // Assert
+    assert.equal(response.status, 200, 'Status code should be 200');
+    joiAssert(response.body, petResponseDeleteSchema(petId.toString()), `Wrong schema for ${response.request.url}`);
   });
 });

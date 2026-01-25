@@ -15,4 +15,13 @@ export class ServiceUtils {
     assert.equal(response.status, 200, 'Status code should be 200');
     joiAssert(response.body, petResponseSchema(body), `Wrong schema for ${response.request.url}`);
   }
+
+  async createAndCheckPet(body: IPet) {
+    await this.createPet(body);
+    const { id } = body;
+    const response = await this.petApi.getPet(id);
+
+    assert.equal(response.status, 200, 'Status code should be 200');
+    joiAssert(response.body, petResponseSchema(body), `Wrong schema for ${response.request.url}`);
+  }
 }

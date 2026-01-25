@@ -30,3 +30,11 @@ export function petResponseSchema(data: IPet) {
     status: Joi.string().valid(data.status).required(),
   }).required();
 }
+
+export function petResponseDeleteSchema(message: string) {
+  return Joi.object({
+    code: Joi.number().valid(200).required(),
+    type: Joi.string().valid('unknown').required(),
+    message: Joi.string().valid(message).required(),
+  }).required();
+}

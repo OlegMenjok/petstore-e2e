@@ -5,7 +5,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "DEBUG=true mocha --config mocharc.js --reporter mocha-multi-reporters --reporter-options configFile=reporter.config.json; node send-telegram.js",
+    "test": "DEBUG=true mocha --config mocharc.js --reporter mocha-multi-reporters --reporter-options configFile=reporter.config.json",
     "test-integration": "DEBUG=false mocha --config mocharc.js --reporter mocha-multi-reporters --reporter-options configFile=reporter.config.json; node send-telegram.js",
     "test-serial": "DEBUG=true mocha --config mocharc.js --jobs 1 --parallel false --reporter mocha-multi-reporters --reporter-options configFile=reporter.config.json",
     "eslint": "eslint . --ext .ts",

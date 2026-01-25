@@ -30,4 +30,18 @@ export class PetApi extends ServiceApi {
       },
     );
   }
+
+  deletePet(petId: number) {
+    const request = this.agent('DELETE', `/v2/pet/${petId}`);
+    return request.then(
+      (result) => {
+        log.info(`Delete pet by petId '${petId}': ${JSON.stringify(result)}`);
+        return result;
+      },
+      (error) => {
+        log.warn(JSON.stringify(error));
+        return error;
+      },
+    );
+  }
 }
